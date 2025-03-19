@@ -12,11 +12,15 @@ function processText() {
   let newContent = "";
 
   words.forEach((word) => {
-    if (isBengali(word)) {
-      newContent += `<span class="bengali-text cols">${word}</span>`;
-    } else {
-      newContent += `<span class="english-text">${word}</span>`;
+    let processedWord = "";
+    for (let char of word) {
+      if (isBengali(char)) {
+        processedWord += `<span class="bengali-text cols">${char}</span>`;
+      } else {
+        processedWord += `<span class="english-text">${char}</span>`;
+      }
     }
+    newContent += processedWord;
   });
 
   textContainer.innerHTML = newContent;
