@@ -1,13 +1,13 @@
-import { processText, defaultLanguageConfig } from "../src/index.js";
+import { getLanguageConfig, processElement } from "../src/index.js";
 
-const customLanguageConfig = [
-  ...defaultLanguageConfig,
-  {
-    name: "Chinese",
-    regex: /[\u4E00-\u9FFF]/,
-    className: "chinese-text",
-  },
-];
+// addCustomLanguage("Korean", /[\uAC00-\uD7AF]/, "korean-text");
+const customLanguageConfig = getLanguageConfig([
+  "Bengali",
+  "English",
+  "Arabic",
+  "Chinese",
+  "Korean", // already available in the default config
+]);
 
 const container = document.getElementById("textContainer");
-container.innerHTML = processText(container.innerText, customLanguageConfig);
+processElement(container, customLanguageConfig);

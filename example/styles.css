@@ -15,14 +15,19 @@ body {
 }
 
 .english-text {
-    color: rgb(255, 0, 234);
+    color: rgb(0, 204, 27);
 }
 
 .arabic-text {
-    color: green;
+    color: rgb(42, 173, 248);
 }
 
 .chinese-text {
-    color: yellow;
+    color: rgb(39, 1, 211);
     font-family: Arial, sans-serif;
+}
+
+.korean-text {
+    color: rgb(37, 169, 173);
+    font-family: 'Times New Roman', Times, serif;
 }

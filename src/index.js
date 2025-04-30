@@ -1,1 +1,7 @@
-export { defaultLanguageConfig, processText } from "./detector.js";
+export {
+  addCustomLanguage,
+  defaultLanguageConfig,
+  getLanguageConfig,
+  processElement,
+  processText,
+} from "./detector.js";
