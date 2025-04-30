@@ -1,13 +1,19 @@
 {
   "name": "@eyachir/language-detector",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A JavaScript library to detect and style text in multiple languages using Unicode ranges.",
   "main": "src/index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["language-detection", "unicode", "text-styling", "multilingual", "javascript"],
+  "keywords": [
+    "language-detection",
+    "unicode",
+    "text-styling",
+    "multilingual",
+    "javascript"
+  ],
   "author": "Eyachir Arafat",
   "license": "MIT",
   "files": [
