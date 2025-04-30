@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+    padding: 20px;
+}
+
+
+.bengali-text {
+    color: red;
+}
+
+.english-text {
+    color: rgb(255, 0, 234);
+}
+
+.arabic-text {
+    color: green;
+}
+
+.chinese-text {
+    color: yellow;
+    font-family: Arial, sans-serif;
+}
