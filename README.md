@@ -1,4 +1,4 @@
-# @ek/language-detector
+# @eyachir/language-detector
 
 A lightweight JavaScript library to detect and style text in multiple languages using Unicode ranges. It supports preserving HTML tags and allows users to add custom languages easily.
 
@@ -7,7 +7,7 @@ A lightweight JavaScript library to detect and style text in multiple languages 
 Install the package via npm:
 
 ```bash
-npm install @ek/language-detector
+npm install @eyachir/language-detector
 ```
 
 ## Usage
@@ -24,7 +24,7 @@ The library provides functions to detect languages and style text. It can proces
   <h2>今天是个好日子</h2>
 </div>
 <script type="module">
-  import { processElement, getLanguageConfig } from "@ek/language-detector";
+  import { processElement, getLanguageConfig } from "@eyachir/language-detector";
 
   const customLanguageConfig = getLanguageConfig(["Bengali", "English", "Arabic", "Chinese", "Korean"]);
   const container = document.getElementById("textContainer");
@@ -48,7 +48,7 @@ You can add a custom language using `addCustomLanguage` (if that language is not
 ```html
 <div id="textContainer">Bonjour (French)</div>
 <script type="module">
-  import { processElement, getLanguageConfig, addCustomLanguage } from "@ek/language-detector";
+  import { processElement, getLanguageConfig, addCustomLanguage } from "@eyachir/language-detector";
 
   addCustomLanguage("French", /[\u00C0-\u017F]/, "french-text");
   const customLanguageConfig = getLanguageConfig(["English", "French"]);
