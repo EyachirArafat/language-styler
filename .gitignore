@@ -1,0 +1,25 @@
+# Node.js
+node_modules/
+package-lock.json
+npm-debug.log
+.yarn-integrity
+
+# Build output 
+dist/
+build/
+
+# Editor files
+.vscode/
+.idea/
+*.sublime-*
+.DS_Store
+
+# Logs and cache
+*.log
+.cache/
+
+# Sensitive files
+.env
+*.key
+*.pem
+
