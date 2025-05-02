@@ -1,9 +1,9 @@
-# language-detector
+# language-styler
 
 A lightweight JavaScript library for detecting and styling text in multiple languages using Unicode ranges. It excels at handling mixed-language text within a single HTML tag, styling each language segment with its respective CSS class, and supports language-specific number formats.
 
 ## 🔑 Key Features
-- Detects and styles mixed-language text (e.g., `<div>আজকের ekhane ١٢٣</div>`).
+- Detects and styles mixed-language text (e.g., `<div>আজকের English 11, العربية, 中文, 한국어 ভাষা একসাথে use করব। )
 - Supports language-specific numbers (e.g., Bengali `০-৯`, Arabic `٠-٩`).
 - Allows adding custom languages via Unicode ranges.
 - Lightweight and compatible with Node.js and browser environments.
@@ -13,7 +13,7 @@ A lightweight JavaScript library for detecting and styling text in multiple lang
 Install the package via npm:
 
 ```bash
-npm install language-detector
+npm install language-styler
 ```
 
 ## ⚙️ Usage
@@ -47,10 +47,15 @@ Bundle the library with Rollup or Vite for browser use:
 </head>
 <body>
   <div id="textContainer">
-    আজকের ekhane ١٢٣ very special. 안녕하세요. 今天是个好日子
+    আজকের দিনটি খুবই special! আমি আমার প্রথম blog লিখছি — এতে আমি বাংলা,
+      English 11, العربية, 中文, 한국어 ভাষা একসাথে use করব। هذه تجربة جديدة
+      وممتعة! 今天我开始写博客了。정말 설레고 기쁩니다. বাংলা আমাদের culture-এর
+      অংশ, আর English হলো global ভাষা। 다른 ভাষা যেমন العربية, 中文 এবং 한국어
+      ভাষাও unique এবং সুন্দর। এই blog হবে ভাষার diversity celebration-এর
+      জায়গা।
   </div>
 
-  <script src="dist/language-detector.js"></script>
+  <script src="dist/language-styler.js"></script>
   <script>
     const { processElement, getLangConfig } = LanguageDetector;
     const config = getLangConfig(["Bengali", "English", "Arabic", "Chinese", "Korean"]);
@@ -63,7 +68,7 @@ Bundle the library with Rollup or Vite for browser use:
 
 **Bundling for Browser**:
 ```bash
-npx rollup node_modules/language-detector/src/index.js --file dist/language-detector.js --format umd --name LanguageDetector
+npx rollup node_modules/language-styler/src/index.js --file dist/language-styler.js --format umd --name LanguageDetector
 ```
 
 ### Example: Node.js Usage
@@ -71,7 +76,7 @@ npx rollup node_modules/language-detector/src/index.js --file dist/language-dete
 Process text in a Node.js environment:
 
 ```javascript
-import { processText, getLangConfig } from "language-detector";
+import { processText, getLangConfig } from "language-styler";
 
 const config = getLangConfig(["Bengali", "English"]);
 const text = "আজকের ekhane is special";
@@ -85,7 +90,7 @@ console.log(result);
 Add a new language with `addCustomLang`:
 
 ```javascript
-import { processElement, getLangConfig, addCustomLang } from "language-detector";
+import { processElement, getLangConfig, addCustomLang } from "language-styler";
 
 addCustomLang("French", /[\u00C0-\u017F]/, "french-text");
 const config = getLangConfig(["English", "French"]);
@@ -127,7 +132,7 @@ Add custom languages using `addCustomLang`.
 
 ## 🌍 Browser Support
 
-1. Install: `npm install language-detector`.
+1. Install: `npm install language-styler`.
 2. Bundle with Rollup or Vite (see bundling command above).
 3. Include the bundled file in your HTML.
 
@@ -143,7 +148,7 @@ This project is licensed under the [MIT License](LICENSE). See the [LICENSE](LIC
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please open an issue or submit a pull request on [GitHub](https://github.com/EyachirArafat/language-detector).
+Contributions are welcome! Please open an issue or submit a pull request on [GitHub](https://github.com/EyachirArafat/language-styler).
 
 ## 📧 Contact
 

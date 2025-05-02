@@ -1,7 +1,7 @@
 {
-  "name": "language-detector",
+  "name": "language-styler",
   "version": "1.0.0",
-  "description": "A JavaScript library to detect and style text in multiple languages using Unicode ranges.",
+  "description": "A lightweight JavaScript library to detect and style text in multiple languages using Unicode ranges.",
   "main": "src/index.js",
   "type": "module",
   "scripts": {
@@ -16,18 +16,14 @@
   ],
   "author": "Eyachir Arafat",
   "license": "MIT",
-  "files": [
-    "src",
-    "LICENSE",
-    "README.md"
-  ],
+  "files": ["src", "LICENSE", "README.md"],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/EyachirArafat/language-detector.git"
+    "url": "https://github.com/EyachirArafat/language-styler.git"
   },
-  "homepage": "https://github.com/EyachirArafat/language-detector",
+  "homepage": "https://github.com/EyachirArafat/language-styler",
   "bugs": {
-    "url": "https://github.com/EyachirArafat/language-detector/issues"
+    "url": "https://github.com/EyachirArafat/language-styler/issues"
   },
   "engines": {
     "node": ">=12"
