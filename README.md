@@ -70,47 +70,6 @@ Use Rollup to create a browser-compatible file:
 npx rollup node_modules/language-detector/src/index.js --file dist/language-detector.js --format umd --name LanguageDetector
 ```
 
-### Example: Using in React
-Use the library in a React application to process user input in real-time.
-
-```jsx
-// src/App.jsx
-import { useState, useRef, useEffect } from "react";
-import { processElement, getLangConfig } from "language-detector";
-import "./App.css";
-
-function App() {
-  const [inputText, setInputText] = useState("");
-  const outputRef = useRef(null);
-
-  useEffect(() => {
-    const config = getLangConfig(["Bengali", "English", "Arabic", "Chinese", "Korean"]);
-    if (outputRef.current) {
-      outputRef.current.innerHTML = "";
-      outputRef.current.textContent = inputText;
-      processElement(outputRef.current, config);
-    }
-  }, [inputText]);
-
-  return (
-    <div style={{ padding: "20px" }}>
-      <h1>Language Detector</h1>
-      <textarea
-        value={inputText}
-        onChange={(e) => setInputText(e.target.value)}
-        placeholder="Type mixed language text or numbers..."
-        rows="5"
-        cols="50"
-      />
-      <h2>Output:</h2>
-      <div ref={outputRef} id="outputContainer" />
-    </div>
-  );
-}
-
-export default App;
-```
-
 ### Example: Adding a Custom Language
 
 Add support for a new language using `addCustomLang`:
@@ -193,7 +152,9 @@ Contributions are welcome! Please open an issue or submit a pull request on [Git
 
 ## 📧 Contact
 
-For support or inquiries, contact [Eyachir Arafat](mailto:me.eyachirarafat@gmail.com).  
+For support or inquiries, contact:
+ 
+📧Email: [Eyachir Arafat](mailto:me.eyachirarafat@gmail.com).  
 🌐 Visit my portfolio: [EyachirArafat](https://eyachirarafat.vercel.app)
 
 
