@@ -1,14 +1,15 @@
 # language-detector
 
-A lightweight JavaScript library for detecting and styling text in multiple languages using Unicode ranges. It allows users to add custom languages with ease.
+### A lightweight JavaScript library for detecting and styling text in multiple languages using Unicode ranges. It supports real-time language detection for user input and styles mixed-language text within a single HTML tag.
 
 ---
 
 ## 🔑 Key Features
 - Detects languages like Bengali, English, Arabic, Chinese, Korean, and more.
-- Styles text with custom CSS classes based on detected languages.
+- Styles mixed-language text within a single HTML tag (e.g., `<div>আজকের today ١٢٣</div>`).
 - Supports custom language addition via Unicode ranges.
-- Lightweight and easy to integrate in Node.js and browser environments.
+- Lightweight and easy to integrate in Node.js, browser, and React environments.
+- Handles numbers in language-specific formats (e.g., Bengali `০-৯`, Arabic `٠-٩`).
 
 ## 📦 Installation
 
@@ -20,9 +21,10 @@ npm install language-detector
 
 ## ⚙️ Usage
 
-The library provides two main functions:
+The library provides three main functions:
 - `getLanguageConfig`: Configures supported languages.
 - `processElement`: Processes HTML elements to detect and style text.
+- `processText`: Processes raw text and returns styled HTML.
 
 ### Example: Processing HTML Elements (Browser)
 
@@ -35,28 +37,25 @@ To use in a browser, bundle the library with Rollup or Vite to create a UMD file
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    .bengali-text {color: red; }
-
-.english-text {color: green; }
-
-.arabic-text {color: blue; }
-
-.chinese-text {color: purple; }
-
-.korean-text {color: orange; }
+    .bengali-text { color: red; border: 1px solid purple; }
+    .english-text { color: green; border: 1px solid purple; }
+    .arabic-text { color: blue; border: 1px solid purple; }
+    .chinese-text { color: purple; border: 1px solid purple; }
+    .korean-text { color: orange; border: 1px solid purple; }
+    .default-text { color: gray; border: 1px solid purple; }
+    span { display: inline; }
   </style>
   <title>Language Detector Demo</title>
 </head>
 <body>
   <div id="textContainer">
-    لَا إِلَٰهَ إِلَّا ٱللَّٰهُ مُحَمَّدٌ رَسُولُ ٱللَّٰهِ ,আজকের দিনটি very special. 안녕하세요. 
-    今天是个好日子
+    আজকের ekhane ١٢٣ very special. 안녕하세요. 今天是个好日子
   </div>
 
   <script src="dist/language-detector.js"></script>
   <script>
-    const { processElement, getLanguageConfig } = LanguageDetector;
-    const config = getLanguageConfig(["Bengali", "English", "Arabic", "Chinese", "Korean"]);
+    const { processElement, getLangConfig } = LanguageDetector;
+    const config = getLangConfig(["Bengali", "English", "Arabic", "Chinese", "Korean"]);
     const container = document.getElementById("textContainer");
     processElement(container, config);
   </script>
@@ -71,32 +70,73 @@ Use Rollup to create a browser-compatible file:
 npx rollup node_modules/language-detector/src/index.js --file dist/language-detector.js --format umd --name LanguageDetector
 ```
 
+### Example: Using in React
+Use the library in a React application to process user input in real-time.
+
+```jsx
+// src/App.jsx
+import { useState, useRef, useEffect } from "react";
+import { processElement, getLangConfig } from "language-detector";
+import "./App.css";
+
+function App() {
+  const [inputText, setInputText] = useState("");
+  const outputRef = useRef(null);
+
+  useEffect(() => {
+    const config = getLangConfig(["Bengali", "English", "Arabic", "Chinese", "Korean"]);
+    if (outputRef.current) {
+      outputRef.current.innerHTML = "";
+      outputRef.current.textContent = inputText;
+      processElement(outputRef.current, config);
+    }
+  }, [inputText]);
+
+  return (
+    <div style={{ padding: "20px" }}>
+      <h1>Language Detector</h1>
+      <textarea
+        value={inputText}
+        onChange={(e) => setInputText(e.target.value)}
+        placeholder="Type mixed language text or numbers..."
+        rows="5"
+        cols="50"
+      />
+      <h2>Output:</h2>
+      <div ref={outputRef} id="outputContainer" />
+    </div>
+  );
+}
+
+export default App;
+```
+
 ### Example: Adding a Custom Language
 
-Add support for a new language using `addCustomLanguage`:
+Add support for a new language using `addCustomLang`:
 
 ```javascript
-import { processElement, getLanguageConfig, addCustomLanguage } from "language-detector";
+import { processElement, getLangConfig, addCustomLang } from "language-detector";
 
-addCustomLanguage("French", /[\u00C0-\u017F]/, "french-text");
-const config = getLanguageConfig(["English", "French"]);
+addCustomLang("French", /[\u00C0-\u017F]/, "french-text");
+const config = getLangConfig(["English", "French"]);
 processElement(document.getElementById("textContainer"), config);
 ```
 
 ```css
-.french-text { color: pink; }
+.french-text { color: pink; border: 1px solid purple; }
 ```
 
 ### Example: Node.js Usage
 
 ```javascript
-import { processText, getLanguageConfig } from "language-detector";
+import { processText, getLangConfig } from "language-detector";
 
-const config = getLanguageConfig(["Bengali", "English"]);
-const text = "আজকের দিনটি is special";
+const config = getLangConfig(["Bengali", "English"]);
+const text = "আজকের, today is special";
 const result = processText(text, config);
 console.log(result);
-// Output: <span class="bengali-text">আজকের দিনটি</span> <span class="english-text">is special</span>
+// Output: <span class="bengali-text">আজকের</span> <span class="english-text">today</span> <span class="english-text">is special</span>
 ```
 
 ## 🌐 Supported Languages
@@ -124,13 +164,13 @@ The library supports the following languages out of the box:
 - Kannada
 - Sinhala
 - LatinExtended (e.g., French, Spanish, German)
-- DevanagariExtended (e.g., Marathi, Sanskrit)
 
-Add custom languages using `addCustomLanguage`.
+Add custom languages using `addCustomLang`.
 
 ## 🌍 Browser Support
 
 To use in browsers:
+
 1. Install the package: `npm install language-detector`.
 2. Bundle with Rollup or Vite (see bundling command above).
 3. Include the bundled file in your HTML.

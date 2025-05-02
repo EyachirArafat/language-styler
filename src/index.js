@@ -1,3 +1,4 @@
+// src/index.js
 export {
   addCustomLang,
   getLangConfig,

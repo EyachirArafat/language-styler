@@ -12,15 +12,14 @@
     "unicode",
     "text-styling",
     "multilingual",
-    "javascript"
+    "javascript",
+    "react",
+    "nodejs",
+    "nextjs"
   ],
   "author": "Eyachir Arafat",
   "license": "MIT",
-  "files": [
-    "src",
-    "LICENSE",
-    "README.md"
-  ],
+  "files": ["src", "LICENSE", "README.md"],
   "repository": {
     "type": "git",
     "url": "https://github.com/EyachirArafat/language-detector.git"
