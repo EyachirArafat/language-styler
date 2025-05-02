@@ -16,10 +16,14 @@
   ],
   "author": "Eyachir Arafat",
   "license": "MIT",
-  "files": ["src", "LICENSE", "README.md"],
+  "files": [
+    "src",
+    "LICENSE",
+    "README.md"
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/EyachirArafat/language-detector.git"
+    "url": "git+https://github.com/EyachirArafat/language-detector.git"
   },
   "homepage": "https://github.com/EyachirArafat/language-detector",
   "bugs": {
