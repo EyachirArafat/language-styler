@@ -1,15 +1,12 @@
 # language-detector
 
-### A lightweight JavaScript library for detecting and styling text in multiple languages using Unicode ranges. It supports real-time language detection for user input and styles mixed-language text within a single HTML tag.
-
----
+A lightweight JavaScript library for detecting and styling text in multiple languages using Unicode ranges. It excels at handling mixed-language text within a single HTML tag, styling each language segment with its respective CSS class, and supports language-specific number formats.
 
 ## 🔑 Key Features
-- Detects languages like Bengali, English, Arabic, Chinese, Korean, and more.
-- Styles mixed-language text within a single HTML tag (e.g., `<div>আজকের today ١٢٣</div>`).
-- Supports custom language addition via Unicode ranges.
-- Lightweight and easy to integrate in Node.js, browser, and React environments.
-- Handles numbers in language-specific formats (e.g., Bengali `০-৯`, Arabic `٠-٩`).
+- Detects and styles mixed-language text (e.g., `<div>আজকের ekhane ١٢٣</div>`).
+- Supports language-specific numbers (e.g., Bengali `০-৯`, Arabic `٠-٩`).
+- Allows adding custom languages via Unicode ranges.
+- Lightweight and compatible with Node.js and browser environments.
 
 ## 📦 Installation
 
@@ -21,14 +18,15 @@ npm install language-detector
 
 ## ⚙️ Usage
 
-The library provides three main functions:
-- `getLanguageConfig`: Configures supported languages.
+The library provides four main functions:
+- `getLangConfig`: Configures supported languages.
 - `processElement`: Processes HTML elements to detect and style text.
 - `processText`: Processes raw text and returns styled HTML.
+- `addCustomLang`: Adds support for custom languages.
 
 ### Example: Processing HTML Elements (Browser)
 
-To use in a browser, bundle the library with Rollup or Vite to create a UMD file.
+Bundle the library with Rollup or Vite for browser use:
 
 ```html
 <!DOCTYPE html>
@@ -64,15 +62,27 @@ To use in a browser, bundle the library with Rollup or Vite to create a UMD file
 ```
 
 **Bundling for Browser**:
-Use Rollup to create a browser-compatible file:
-
 ```bash
 npx rollup node_modules/language-detector/src/index.js --file dist/language-detector.js --format umd --name LanguageDetector
 ```
 
+### Example: Node.js Usage
+
+Process text in a Node.js environment:
+
+```javascript
+import { processText, getLangConfig } from "language-detector";
+
+const config = getLangConfig(["Bengali", "English"]);
+const text = "আজকের ekhane is special";
+const result = processText(text, config);
+console.log(result);
+// Output: <span class="bengali-text">আজকের</span> <span class="english-text">ekhane</span> <span class="english-text">is special</span>
+```
+
 ### Example: Adding a Custom Language
 
-Add support for a new language using `addCustomLang`:
+Add a new language with `addCustomLang`:
 
 ```javascript
 import { processElement, getLangConfig, addCustomLang } from "language-detector";
@@ -83,24 +93,13 @@ processElement(document.getElementById("textContainer"), config);
 ```
 
 ```css
-.french-text { color: pink; border: 1px solid purple; }
-```
-
-### Example: Node.js Usage
-
-```javascript
-import { processText, getLangConfig } from "language-detector";
-
-const config = getLangConfig(["Bengali", "English"]);
-const text = "আজকের, today is special";
-const result = processText(text, config);
-console.log(result);
-// Output: <span class="bengali-text">আজকের</span> <span class="english-text">today</span> <span class="english-text">is special</span>
+.french-text {
+  color: pink;
+  border: 1px solid purple;
+}
 ```
 
 ## 🌐 Supported Languages
-
-The library supports the following languages out of the box:
 
 - Bengali
 - English
@@ -128,19 +127,15 @@ Add custom languages using `addCustomLang`.
 
 ## 🌍 Browser Support
 
-To use in browsers:
-
-1. Install the package: `npm install language-detector`.
+1. Install: `npm install language-detector`.
 2. Bundle with Rollup or Vite (see bundling command above).
 3. Include the bundled file in your HTML.
 
-For local testing, use a server to avoid CORS issues:
-
+For local testing, use a server:
 ```bash
 npx http-server
 ```
-
-Open `http://localhost:8080/index.html` in your browser.
+Open `http://localhost:8080`.
 
 ## 📜 License
 
@@ -152,10 +147,5 @@ Contributions are welcome! Please open an issue or submit a pull request on [Git
 
 ## 📧 Contact
 
-For support or inquiries, contact:
- 
-📧Email: [Eyachir Arafat](mailto:me.eyachirarafat@gmail.com).  
+For support or inquiries, contact [Eyachir Arafat](mailto:me.eyachirarafat@gmail.com).  
 🌐 Visit my portfolio: [EyachirArafat](https://eyachirarafat.vercel.app)
-
-
----
