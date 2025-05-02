@@ -1,13 +1,12 @@
-# @eyachir/language-detector
+# language-detector
 
-A lightweight JavaScript library for detecting and styling text in multiple languages using Unicode ranges. It supports preserving HTML tags and allows users to add custom languages with ease.
+A lightweight JavaScript library for detecting and styling text in multiple languages using Unicode ranges. It allows users to add custom languages with ease.
 
 ---
 
 ## 🔑 Key Features
 - Detects languages like Bengali, English, Arabic, Chinese, Korean, and more.
 - Styles text with custom CSS classes based on detected languages.
-- Preserves HTML tags (`<h1>`, `<p>`, etc.) during processing.
 - Supports custom language addition via Unicode ranges.
 - Lightweight and easy to integrate in Node.js and browser environments.
 
@@ -16,7 +15,7 @@ A lightweight JavaScript library for detecting and styling text in multiple lang
 Install the package via npm:
 
 ```bash
-npm install @eyachir/language-detector
+npm install language-detector
 ```
 
 ## ⚙️ Usage
@@ -36,21 +35,22 @@ To use in a browser, bundle the library with Rollup or Vite to create a UMD file
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    .bengali-text { color: red; }
-    .english-text { color: black; }
-    .arabic-text { color: green; }
-    .chinese-text { color: yellow; }
-    .korean-text { color: blue; }
-    .default-text { color: gray; }
-    span { display: inline; }
+    .bengali-text {color: red; }
+
+.english-text {color: green; }
+
+.arabic-text {color: blue; }
+
+.chinese-text {color: purple; }
+
+.korean-text {color: orange; }
   </style>
   <title>Language Detector Demo</title>
 </head>
 <body>
   <div id="textContainer">
-    <h1>لَا إِلَٰهَ إِلَّا ٱللَّٰهُ مُحَمَّدٌ رَسُولُ ٱللَّٰهِ</h1>
-    <h2>আজকের দিনটি very special. 안녕하세요.</h2>
-    <h2>今天是个好日子</h2>
+    لَا إِلَٰهَ إِلَّا ٱللَّٰهُ مُحَمَّدٌ رَسُولُ ٱللَّٰهِ ,আজকের দিনটি very special. 안녕하세요. 
+    今天是个好日子
   </div>
 
   <script src="dist/language-detector.js"></script>
@@ -68,7 +68,7 @@ To use in a browser, bundle the library with Rollup or Vite to create a UMD file
 Use Rollup to create a browser-compatible file:
 
 ```bash
-npx rollup node_modules/@eyachir/language-detector/src/index.js --file dist/language-detector.js --format umd --name LanguageDetector
+npx rollup node_modules/language-detector/src/index.js --file dist/language-detector.js --format umd --name LanguageDetector
 ```
 
 ### Example: Adding a Custom Language
@@ -76,7 +76,7 @@ npx rollup node_modules/@eyachir/language-detector/src/index.js --file dist/lang
 Add support for a new language using `addCustomLanguage`:
 
 ```javascript
-import { processElement, getLanguageConfig, addCustomLanguage } from "@eyachir/language-detector";
+import { processElement, getLanguageConfig, addCustomLanguage } from "language-detector";
 
 addCustomLanguage("French", /[\u00C0-\u017F]/, "french-text");
 const config = getLanguageConfig(["English", "French"]);
@@ -90,7 +90,7 @@ processElement(document.getElementById("textContainer"), config);
 ### Example: Node.js Usage
 
 ```javascript
-import { processText, getLanguageConfig } from "@eyachir/language-detector";
+import { processText, getLanguageConfig } from "language-detector";
 
 const config = getLanguageConfig(["Bengali", "English"]);
 const text = "আজকের দিনটি is special";
@@ -131,7 +131,7 @@ Add custom languages using `addCustomLanguage`.
 ## 🌍 Browser Support
 
 To use in browsers:
-1. Install the package: `npm install @eyachir/language-detector`.
+1. Install the package: `npm install language-detector`.
 2. Bundle with Rollup or Vite (see bundling command above).
 3. Include the bundled file in your HTML.
 

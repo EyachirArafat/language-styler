@@ -1,6 +1,6 @@
 {
-  "name": "@eyachir/language-detector",
-  "version": "1.0.1",
+  "name": "language-detector",
+  "version": "1.0.0",
   "description": "A JavaScript library to detect and style text in multiple languages using Unicode ranges.",
   "main": "src/index.js",
   "type": "module",

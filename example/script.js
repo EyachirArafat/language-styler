@@ -1,7 +1,7 @@
-import { getLanguageConfig, processElement } from "../src/index.js";
+import { getLangConfig, processElement } from "../src/index.js";
 
 // addCustomLanguage("Korean", /[\uAC00-\uD7AF]/, "korean-text");
-const customLanguageConfig = getLanguageConfig([
+const customLangConfig = getLangConfig([
   "Bengali",
   "English",
   "Arabic",
@@ -10,4 +10,4 @@ const customLanguageConfig = getLanguageConfig([
 ]);
 
 const container = document.getElementById("textContainer");
-processElement(container, customLanguageConfig);
+processElement(container, customLangConfig);

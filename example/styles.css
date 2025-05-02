@@ -10,24 +10,28 @@ body {
 }
 
 
-.bengali-text {
+.bengali {
     color: red;
+    border: 1px solid red;
+    background-color: rgb(113, 230, 89);
+    padding: 1px;
 }
 
-.english-text {
-    color: rgb(0, 204, 27);
+.english {
+    color: green;
+    border-bottom: 2px solid green;
+    background-color: lightblue;
 }
 
-.arabic-text {
-    color: rgb(42, 173, 248);
+.arabic {
+    color: blue;
+    border: 1px solid purple;
 }
 
-.chinese-text {
-    color: rgb(39, 1, 211);
-    font-family: Arial, sans-serif;
+.chinese {
+    color: purple;
 }
 
-.korean-text {
-    color: rgb(37, 169, 173);
-    font-family: 'Times New Roman', Times, serif;
+.korean {
+    color: orange;
 }
