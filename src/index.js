@@ -4,4 +4,4 @@ export {
   getLangConfig,
   processElement,
   processText,
-} from "./detector.js";
+} from "./core.js";

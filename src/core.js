@@ -38,19 +38,19 @@ const supportedLang = {
  * @param {RegExp} regex - Unicode regex for the language.
  * @param {string} className - CSS class name for styling.
  */
-function addCustomLang(name, regex, className) {
+const addCustomLang = (name, regex, className) => {
   if (supportedLang[name]) {
     throw new Error(`Language ${name} already exists`);
   }
   supportedLang[name] = { regex, className };
-}
+};
 
 /**
  * Returns language configuration for specified language names.
  * @param {string[]} languages - Array of language names (e.g., ["Bengali", "Chinese"]).
  * @returns {Object[]} Array of language configurations.
  */
-function getLangConfig(languages = Object.keys(supportedLang)) {
+const getLangConfig = (languages = Object.keys(supportedLang)) => {
   return languages.map((name) => {
     if (!supportedLang[name]) {
       throw new Error(`Unsupported language: ${name}`);
@@ -61,7 +61,7 @@ function getLangConfig(languages = Object.keys(supportedLang)) {
       className: supportedLang[name].className,
     };
   });
-}
+};
 
 /**
  * Detects the language of a single character based on the provided config.
@@ -69,14 +69,14 @@ function getLangConfig(languages = Object.keys(supportedLang)) {
  * @param {Array} langConfig - Array of language configurations.
  * @returns {Object} - Language configuration object or default.
  */
-function detectLang(char, langConfig) {
+const detectLang = (char, langConfig) => {
   for (const lang of langConfig) {
     if (lang.regex.test(char)) {
       return lang;
     }
   }
   return { name: "default", className: "default-text" };
-}
+};
 
 /**
  * Processes text and wraps language-specific segments in spans with appropriate CSS classes.
@@ -84,7 +84,7 @@ function detectLang(char, langConfig) {
  * @param {Array} [langConfig] - Language configuration.
  * @returns {string} Processed HTML string with styled spans.
  */
-function processText(text, langConfig = getLangConfig()) {
+const processText = (text, langConfig = getLangConfig()) => {
   if (!text || typeof text !== "string") {
     throw new Error("Valid text input is required");
   }
@@ -119,15 +119,15 @@ function processText(text, langConfig = getLangConfig()) {
   });
 
   return newContent;
-}
+};
 
 /**
  * Processes an HTML element, preserving HTML tags and styling text nodes.
  * @param {HTMLElement} element - The DOM element to process.
  * @param {Array} [langConfig] - Language configuration.
  */
-function processElement(element, langConfig = getLangConfig()) {
-  function processNode(node) {
+const processElement = (element, langConfig = getLangConfig()) => {
+  const processNode = (node) => {
     if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
       const span = document.createElement("span");
       span.innerHTML = processText(node.textContent, langConfig);
@@ -137,11 +137,11 @@ function processElement(element, langConfig = getLangConfig()) {
         processNode(child);
       }
     }
-  }
+  };
 
   for (let child of Array.from(element.childNodes)) {
     processNode(child);
   }
-}
+};
 
 export { addCustomLang, getLangConfig, processElement, processText };
