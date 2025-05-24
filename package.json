@@ -1,6 +1,6 @@
 {
   "name": "language-styler",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A lightweight JavaScript library to detect and style text in multiple languages using Unicode ranges, with React and TypeScript support.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
