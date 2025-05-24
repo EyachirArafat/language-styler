@@ -1,35 +1,34 @@
-// src/detector.js
 const supportedLang = {
-  Bengali: { regex: /[\u0980-\u09FF\u09E6-\u09EF]/, className: "bengali-text" },
-  English: { regex: /[A-Za-z0-9]/, className: "english-text" },
-  Arabic: { regex: /[\u0600-\u06FF\u0660-\u0669]/, className: "arabic-text" },
-  Chinese: { regex: /[\u4E00-\u9FFF]/, className: "chinese-text" },
-  Hindi: { regex: /[\u0900-\u097F\u0966-\u096F]/, className: "hindi-text" },
+  Bengali: { regex: /[\u0980-\u09FF\u09E6-\u09EF]/, className: "bengali" },
+  English: { regex: /[A-Za-z0-9]/, className: "english" },
+  Arabic: { regex: /[\u0600-\u06FF\u0660-\u0669]/, className: "arabic" },
+  Chinese: { regex: /[\u4E00-\u9FFF]/, className: "chinese" },
+  Hindi: { regex: /[\u0900-\u097F\u0966-\u096F]/, className: "hindi" },
   Japanese: {
     regex: /[\u3040-\u309F\u30A0-\u30FF]/,
-    className: "japanese-text",
+    className: "japanese",
   },
-  Korean: { regex: /[\uAC00-\uD7AF]/, className: "korean-text" },
-  Russian: { regex: /[\u0400-\u04FF]/, className: "russian-text" },
-  Tamil: { regex: /[\u0B80-\u0BFF\u0BE6-\u0BEF]/, className: "tamil-text" },
-  Telugu: { regex: /[\u0C00-\u0C7F\u0C66-\u0C6F]/, className: "telugu-text" },
+  Korean: { regex: /[\uAC00-\uD7AF]/, className: "korean" },
+  Russian: { regex: /[\u0400-\u04FF]/, className: "russian" },
+  Tamil: { regex: /[\u0B80-\u0BFF\u0BE6-\u0BEF]/, className: "tamil" },
+  Telugu: { regex: /[\u0C00-\u0C7F\u0C66-\u0C6F]/, className: "telugu" },
   Malayalam: {
     regex: /[\u0D00-\u0D7F\u0D66-\u0D6F]/,
-    className: "malayalam-text",
+    className: "malayalam",
   },
-  Thai: { regex: /[\u0E00-\u0E7F\u0E50-\u0E59]/, className: "thai-text" },
-  Greek: { regex: /[\u0370-\u03FF]/, className: "greek-text" },
-  Hebrew: { regex: /[\u0590-\u05FF]/, className: "hebrew-text" },
-  Georgian: { regex: /[\u10A0-\u10FF]/, className: "georgian-text" },
-  Armenian: { regex: /[\u0530-\u058F]/, className: "armenian-text" },
+  Thai: { regex: /[\u0E00-\u0E7F\u0E50-\u0E59]/, className: "thai" },
+  Greek: { regex: /[\u0370-\u03FF]/, className: "greek" },
+  Hebrew: { regex: /[\u0590-\u05FF]/, className: "hebrew" },
+  Georgian: { regex: /[\u10A0-\u10FF]/, className: "georgian" },
+  Armenian: { regex: /[\u0530-\u058F]/, className: "armenian" },
   Gujarati: {
     regex: /[\u0A80-\u0AFF\u0AE6-\u0AEF]/,
-    className: "gujarati-text",
+    className: "gujarati",
   },
-  Punjabi: { regex: /[\u0A00-\u0A7F\u0A66-\u0A6F]/, className: "punjabi-text" },
-  Kannada: { regex: /[\u0C80-\u0CFF\u0CE6-\u0CEF]/, className: "kannada-text" },
-  Sinhala: { regex: /[\u0D80-\u0DFF\u0DE6-\u0DEF]/, className: "sinhala-text" },
-  LatinExtended: { regex: /[\u00C0-\u024F]/, className: "latin-extended-text" },
+  Punjabi: { regex: /[\u0A00-\u0A7F\u0A66-\u0A6F]/, className: "punjabi" },
+  Kannada: { regex: /[\u0C80-\u0CFF\u0CE6-\u0CEF]/, className: "kannada" },
+  Sinhala: { regex: /[\u0D80-\u0DFF\u0DE6-\u0DEF]/, className: "sinhala" },
+  LatinExtended: { regex: /[\u00C0-\u024F]/, className: "latin-extended" },
 };
 
 /**
@@ -38,22 +37,22 @@ const supportedLang = {
  * @param {RegExp} regex - Unicode regex for the language.
  * @param {string} className - CSS class name for styling.
  */
-function addCustomLang(name, regex, className) {
+const addCustomLang = (name, regex, className) => {
   if (supportedLang[name]) {
     throw new Error(`Language ${name} already exists`);
   }
   supportedLang[name] = { regex, className };
-}
+};
 
 /**
  * Returns language configuration for specified language names.
  * @param {string[]} languages - Array of language names (e.g., ["Bengali", "Chinese"]).
  * @returns {Object[]} Array of language configurations.
  */
-function getLangConfig(languages = Object.keys(supportedLang)) {
+const getLangConfig = (languages = Object.keys(supportedLang)) => {
   return languages.map((name) => {
     if (!supportedLang[name]) {
-      throw new Error(`Unsupported language: ${name}`);
+      throw new Error(`Language ${name} is not found`);
     }
     return {
       name,
@@ -61,7 +60,7 @@ function getLangConfig(languages = Object.keys(supportedLang)) {
       className: supportedLang[name].className,
     };
   });
-}
+};
 
 /**
  * Detects the language of a single character based on the provided config.
@@ -69,14 +68,14 @@ function getLangConfig(languages = Object.keys(supportedLang)) {
  * @param {Array} langConfig - Array of language configurations.
  * @returns {Object} - Language configuration object or default.
  */
-function detectLang(char, langConfig) {
+const detectLang = (char, langConfig) => {
   for (const lang of langConfig) {
     if (lang.regex.test(char)) {
       return lang;
     }
   }
-  return { name: "default", className: "default-text" };
-}
+  return { name: "default", className: "default" };
+};
 
 /**
  * Processes text and wraps language-specific segments in spans with appropriate CSS classes.
@@ -84,7 +83,7 @@ function detectLang(char, langConfig) {
  * @param {Array} [langConfig] - Language configuration.
  * @returns {string} Processed HTML string with styled spans.
  */
-function processText(text, langConfig = getLangConfig()) {
+const processText = (text, langConfig = getLangConfig()) => {
   if (!text || typeof text !== "string") {
     throw new Error("Valid text input is required");
   }
@@ -119,15 +118,15 @@ function processText(text, langConfig = getLangConfig()) {
   });
 
   return newContent;
-}
+};
 
 /**
  * Processes an HTML element, preserving HTML tags and styling text nodes.
  * @param {HTMLElement} element - The DOM element to process.
  * @param {Array} [langConfig] - Language configuration.
  */
-function processElement(element, langConfig = getLangConfig()) {
-  function processNode(node) {
+const processElement = (element, langConfig = getLangConfig()) => {
+  const processNode = (node) => {
     if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
       const span = document.createElement("span");
       span.innerHTML = processText(node.textContent, langConfig);
@@ -137,11 +136,47 @@ function processElement(element, langConfig = getLangConfig()) {
         processNode(child);
       }
     }
-  }
+  };
 
   for (let child of Array.from(element.childNodes)) {
     processNode(child);
   }
-}
+};
 
-export { addCustomLang, getLangConfig, processElement, processText };
+/**
+ * Processes text for React, returning an array of segments with text and className.
+ * @param {string} text - The input text to process.
+ * @param {Array} langConfig - Language configuration.
+ * @returns {Array} Array of segments with text and className.
+ */
+const processTextForReact = (text, langConfig) => {
+  if (typeof text !== "string") {
+    throw new Error("Text must be a string");
+  }
+  const segments = [];
+  let currentSegment = "";
+  let currentLang = null;
+  for (let char of text) {
+    const lang = detectLang(char, langConfig);
+    if (currentLang && lang.name !== currentLang.name) {
+      segments.push({ text: currentSegment, className: currentLang.className });
+      currentSegment = char;
+      currentLang = lang;
+    } else {
+      currentSegment += char;
+      currentLang = lang;
+    }
+  }
+  if (currentSegment) {
+    segments.push({ text: currentSegment, className: currentLang.className });
+  }
+  return segments;
+};
+
+export {
+  addCustomLang,
+  getLangConfig,
+  processElement,
+  processText,
+  processTextForReact,
+};
