@@ -1,4 +1,3 @@
-// src/detector.js
 const supportedLang = {
   Bengali: { regex: /[\u0980-\u09FF\u09E6-\u09EF]/, className: "bengali-text" },
   English: { regex: /[A-Za-z0-9]/, className: "english-text" },
@@ -53,7 +52,7 @@ const addCustomLang = (name, regex, className) => {
 const getLangConfig = (languages = Object.keys(supportedLang)) => {
   return languages.map((name) => {
     if (!supportedLang[name]) {
-      throw new Error(`Unsupported language: ${name}`);
+      throw new Error(`Language ${name} is not found`);
     }
     return {
       name,
@@ -144,4 +143,40 @@ const processElement = (element, langConfig = getLangConfig()) => {
   }
 };
 
-export { addCustomLang, getLangConfig, processElement, processText };
+/**
+ * Processes text for React, returning an array of segments with text and className.
+ * @param {string} text - The input text to process.
+ * @param {Array} langConfig - Language configuration.
+ * @returns {Array} Array of segments with text and className.
+ */
+const processTextForReact = (text, langConfig) => {
+  if (typeof text !== "string") {
+    throw new Error("Text must be a string");
+  }
+  const segments = [];
+  let currentSegment = "";
+  let currentLang = null;
+  for (let char of text) {
+    const lang = detectLang(char, langConfig);
+    if (currentLang && lang.name !== currentLang.name) {
+      segments.push({ text: currentSegment, className: currentLang.className });
+      currentSegment = char;
+      currentLang = lang;
+    } else {
+      currentSegment += char;
+      currentLang = lang;
+    }
+  }
+  if (currentSegment) {
+    segments.push({ text: currentSegment, className: currentLang.className });
+  }
+  return segments;
+};
+
+export {
+  addCustomLang,
+  getLangConfig,
+  processElement,
+  processTextForReact,
+  processText,
+};

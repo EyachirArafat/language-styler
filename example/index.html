@@ -18,6 +18,23 @@
       ভাষাও unique এবং সুন্দর। এই blog হবে ভাষার diversity celebration-এর
       জায়গা।"
     </div>
-    <script type="module" src="./script.js"></script>
+    <!-- <script type="module" src="./script.js"></script> -->
+    <script src="../dist/default.umd.js"></script>
+    <script>
+      const { getLangConfig, processElement } = window.languageStylerHtml;
+      const config = getLangConfig([
+        "Bengali",
+        "English",
+        "Arabic",
+        "Chinese",
+        "Korean",
+      ]);
+      const container = document.getElementById("textContainer");
+      if (container) {
+        processElement(container, config);
+      } else {
+        console.error("Container element not found");
+      }
+    </script>
   </body>
 </html>

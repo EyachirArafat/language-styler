@@ -1,5 +1,4 @@
-import { getLangConfig, processElement } from "../src/index.js";
-
+import { getLangConfig, processElement } from "../dist/default.umd.js";
 const customLangConfig = getLangConfig([
   "Bengali",
   "English",
