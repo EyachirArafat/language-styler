@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import { getLangConfig, processTextForReact } from "./core";
 
 interface Segment {
@@ -7,7 +7,7 @@ interface Segment {
 }
 
 interface Props {
-  children: string;
+  children: React.ReactNode;
   languages?: string[];
   styleConfig?: { [language: string]: string };
   as?: React.ElementType;
@@ -24,6 +24,10 @@ export const TextStyle: React.FC<Props> = ({
   styleConfig = {},
   as: Tag = "div",
 }) => {
+  const text = React.Children.toArray(children)
+    .map((child) => (typeof child === "string" ? child : ""))
+    .join("");
+
   const baseConfig = useMemo(
     () => getLangConfig(languages) as Segment[],
     [languages]
@@ -37,8 +41,8 @@ export const TextStyle: React.FC<Props> = ({
     [baseConfig, styleConfig]
   );
   const segments = useMemo(
-    () => processTextForReact(children, langConfig),
-    [children, langConfig]
+    () => processTextForReact(text, langConfig),
+    [text, langConfig]
   );
 
   return (

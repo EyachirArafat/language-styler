@@ -6,9 +6,12 @@
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "type": "module",
+  "exports": {
+    ".": "./dist/index.js",
+    "./text-style": "./dist/text-style.js"
+  },
   "scripts": {
     "build": "rollup -c",
-    "test": "jest",
     "prepublishOnly": "npm run build"
   },
   "keywords": [
@@ -18,6 +21,7 @@
     "multilingual",
     "javascript",
     "react",
+    "nextjs",
     "typescript"
   ],
   "author": "Eyachir Arafat",

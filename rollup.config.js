@@ -8,7 +8,7 @@ export default [
     output: {
       file: "dist/index.js",
       format: "cjs",
-      sourcemap: true,
+      sourcemap: false,
     },
     plugins: [
       resolve({
@@ -16,7 +16,7 @@ export default [
         mainFields: ["main", "module"],
         preferBuiltins: false,
       }),
-      typescript({ tsconfig: "./tsconfig.json", sourceMap: true }),
+      typescript({ tsconfig: "./tsconfig.json", sourceMap: false }),
     ],
     external: ["react", "react/jsx-runtime"],
   },
@@ -26,7 +26,7 @@ export default [
     output: {
       file: "dist/index.esm.js",
       format: "esm",
-      sourcemap: true,
+      sourcemap: false,
     },
     plugins: [
       resolve({
@@ -34,7 +34,7 @@ export default [
         mainFields: ["module", "main"],
         preferBuiltins: false,
       }),
-      typescript({ tsconfig: "./tsconfig.json", sourceMap: true }),
+      typescript({ tsconfig: "./tsconfig.json", sourceMap: false }),
     ],
     external: ["react", "react/jsx-runtime"],
   },
@@ -45,7 +45,7 @@ export default [
       file: "dist/default.umd.js",
       format: "umd",
       name: "languageStylerHtml",
-      sourcemap: true,
+      sourcemap: false,
     },
     plugins: [
       resolve({
@@ -53,8 +53,26 @@ export default [
         mainFields: ["module", "main"],
         preferBuiltins: false,
       }),
-      typescript({ tsconfig: "./tsconfig.json", sourceMap: true }),
+      typescript({ tsconfig: "./tsconfig.json", sourceMap: false }),
     ],
     external: [],
+  },
+  // TextStyle Module
+  {
+    input: "src/text-style.tsx",
+    output: {
+      file: "dist/text-style.js",
+      format: "esm",
+      sourcemap: false,
+    },
+    plugins: [
+      resolve({
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
+        mainFields: ["module", "main"],
+        preferBuiltins: false,
+      }),
+      typescript({ tsconfig: "./tsconfig.json", sourceMap: false }),
+    ],
+    external: ["react", "react/jsx-runtime"],
   },
 ];

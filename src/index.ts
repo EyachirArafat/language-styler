@@ -6,4 +6,3 @@ export {
   processTextForReact
 } from "./core";
 export { TextStyle as LanguageStyledText } from "./text-style";
-
