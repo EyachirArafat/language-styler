@@ -173,10 +173,32 @@ const processTextForReact = (text, langConfig) => {
   return segments;
 };
 
+/**
+ * Processes the entire DOM tree to detect and style text globally.
+ * @param {Array} [langConfig] - Language configuration.
+ */
+const processGlobal = (langConfig = getLangConfig()) => {
+  const processNode = (node) => {
+    if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+      const span = document.createElement("span");
+      span.innerHTML = processText(node.textContent, langConfig);
+      node.replaceWith(span);
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+      if (["SCRIPT", "STYLE"].includes(node.tagName)) return;
+      for (let child of Array.from(node.childNodes)) {
+        processNode(child);
+      }
+    }
+  };
+
+  processNode(document.body || document.documentElement);
+};
+
 export {
   addCustomLang,
   getLangConfig,
   processElement,
+  processGlobal,
   processText,
   processTextForReact,
 };

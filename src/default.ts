@@ -1,7 +1,4 @@
 export {
-    addCustomLang,
-    getLangConfig,
-    processElement,
-    processText,
-    processTextForReact
+    addCustomLang, getLangConfig, processElement, processGlobal, processText, processTextForReact
 } from "./core";
+
