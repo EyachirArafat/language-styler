@@ -8,7 +8,7 @@
   "type": "module",
   "exports": {
     ".": "./dist/index.js",
-    "./text-style": "./dist/text-style.js"
+    "./lang-styler": "./dist/lang-styler.js"
   },
   "scripts": {
     "build": "rollup -c",

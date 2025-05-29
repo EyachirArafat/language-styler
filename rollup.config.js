@@ -57,11 +57,11 @@ export default [
     ],
     external: [],
   },
-  // TextStyle Module
+  // LangStyler Module
   {
-    input: "src/text-style.tsx",
+    input: "src/react/lang-styler.tsx",
     output: {
-      file: "dist/text-style.js",
+      file: "dist/lang-styler.js",
       format: "esm",
       sourcemap: false,
     },

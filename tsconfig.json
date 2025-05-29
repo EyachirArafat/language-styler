@@ -14,7 +14,9 @@
         "moduleResolution": "node"
     },
     "include": [
-        "src/**/*"
+        "src/**/*",
+        "test/global-style.tsx",
+        "test/text-style.tsx"
     ],
     "exclude": [
         "node_modules",

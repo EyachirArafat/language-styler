@@ -1,17 +1,14 @@
 import React, { useMemo } from "react";
-import { getLangConfig } from "./core";
-import { TextStyle } from "./text-style";
+import { getLangConfig } from "../core/config";
+import { LangStyler } from "./lang-styler";
 
-interface GlobalStyleWrapperProps {
+interface GlobalStylerProps {
   languages?: string[];
   styleConfig?: { [language: string]: string };
   children: React.ReactNode;
 }
 
-/**
- * A Higher-Order Component that wraps children with TextStyle for global language styling.
- */
-export const GlobalStyleWrapper: React.FC<GlobalStyleWrapperProps> = ({
+export const GlobalStyler: React.FC<GlobalStylerProps> = ({
   languages = [],
   styleConfig = {},
   children,
@@ -21,9 +18,9 @@ export const GlobalStyleWrapper: React.FC<GlobalStyleWrapperProps> = ({
   const wrapTextNodes = (child: React.ReactNode): React.ReactNode => {
     if (typeof child === "string") {
       return (
-        <TextStyle languages={languages} styleConfig={styleConfig}>
+        <LangStyler languages={languages} styleConfig={styleConfig}>
           {child}
-        </TextStyle>
+        </LangStyler>
       );
     }
 
