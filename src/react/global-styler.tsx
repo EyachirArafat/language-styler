@@ -1,21 +1,19 @@
-import React, { useMemo } from "react";
-import { getLangConfig } from "../core/config";
+import React, { FC, ReactNode } from "react";
+import { StyleConfig } from "../types";
 import { LangStyler } from "./lang-styler";
 
 interface GlobalStylerProps {
   languages?: string[];
-  styleConfig?: { [language: string]: string };
-  children: React.ReactNode;
+  styleConfig?: { [language: string]: StyleConfig };
+  children: ReactNode;
 }
 
-export const GlobalStyler: React.FC<GlobalStylerProps> = ({
+export const GlobalStyler: FC<GlobalStylerProps> = ({
   languages = [],
   styleConfig = {},
   children,
 }) => {
-  const langConfig = useMemo(() => getLangConfig(languages), [languages]);
-
-  const wrapTextNodes = (child: React.ReactNode): React.ReactNode => {
+  const wrapTextNodes = (child: ReactNode): ReactNode => {
     if (typeof child === "string") {
       return (
         <LangStyler languages={languages} styleConfig={styleConfig}>
