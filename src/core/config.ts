@@ -5,7 +5,6 @@ export interface LanguageConfig {
     regex: RegExp;
     className: string;
     isRTL: boolean;
-    fontFamily?: string;
 }
 
 
@@ -17,7 +16,6 @@ export function getLangConfig(languages: string[] = Object.keys(SUPPORTED_LANGUA
             regex: SUPPORTED_LANGUAGES[name].regex,
             className: SUPPORTED_LANGUAGES[name].className,
             isRTL: RTL_LANGUAGES.includes(name),
-            fontFamily: undefined
         };
     });
 }

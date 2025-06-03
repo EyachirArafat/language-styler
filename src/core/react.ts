@@ -4,7 +4,6 @@ export interface TextSegment {
     text: string;
     className: string;
     isRTL: boolean;
-    fontFamily?: string;
 }
 
 export function processReactText(text: string, langConfig = getLangConfig()): TextSegment[] {
@@ -21,7 +20,6 @@ export function processReactText(text: string, langConfig = getLangConfig()): Te
                 text: currentSegment,
                 className: currentLang.className,
                 isRTL: currentLang.isRTL,
-                fontFamily: currentLang.fontFamily,
             });
             currentSegment = char;
             currentLang = lang;
@@ -36,7 +34,6 @@ export function processReactText(text: string, langConfig = getLangConfig()): Te
             text: currentSegment,
             className: currentLang?.className || '',
             isRTL: currentLang?.isRTL || false,
-            fontFamily: currentLang?.fontFamily,
         });
     }
 
@@ -45,5 +42,5 @@ export function processReactText(text: string, langConfig = getLangConfig()): Te
 
 function detectLang(char: string, config: LanguageConfig[]): LanguageConfig {
     for (const lang of config) if (lang.regex.test(char)) return lang;
-    return { name: "default", className: "default", isRTL: false, regex: /./, fontFamily: undefined };
+    return { name: "default", className: "default", isRTL: false, regex: /./ };
 }

@@ -1,6 +1,5 @@
 export interface StyleConfig {
     className?: string;
-    fontFamily?: string;
 }
 export interface StylerProps {
     languages?: string[];
