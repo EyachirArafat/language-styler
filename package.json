@@ -1,7 +1,11 @@
 {
-    "name": "language-styler-private",
+    "name": "@eyachirarafat/language-styler",
     "version": "3.0.0",
     "description": "A high-performance JavaScript library for detecting and styling multilingual text with React and TypeScript support.",
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com",
+        "@eyachirarafat:registry": "https://npm.pkg.github.com"
+    },
     "main": "dist/index.js",
     "module": "dist/index.esm.js",
     "types": "dist/index.d.ts",
@@ -15,7 +19,7 @@
         "./react": {
             "import": "./dist/react.esm.js",
             "require": "./dist/react.js",
-             "types": "./dist/react.d.ts"
+            "types": "./dist/react.d.ts"
         },
         "./vanilla": {
             "import": "./dist/vanilla.esm.js",

@@ -27,6 +27,7 @@ yarn-debug.log*
 # Environment files
 .env*
 !.env.example
+.npmrc
 
 # Cache and temporary files
 .cache/
