@@ -1,48 +1,448 @@
+/* South Asian Languages */
 .lang-bengali {
     font-family: 'Kalpurush', 'SolaimanLipi', 'Mukti', sans-serif;
+    color: #2c5aa0;
 }
 
-.lang-english {
-    font-family: 'Inter', 'Segoe UI', 'Arial', sans-serif;
-}
-
-.lang-arabic {
-    font-family: 'Amiri', 'Scheherazade New', 'Arial Unicode MS', sans-serif;
-    direction: rtl;
-    text-align: right;
-}
-
-.lang-chinese {
-    font-family: 'Noto Sans SC', 'PingFang SC', 'SimSun', sans-serif;
+.lang-assamese {
+    font-family: 'Noto Sans Bengali', 'Vrinda', sans-serif;
+    color: #2c5aa0;
 }
 
 .lang-hindi {
     font-family: 'Noto Sans Devanagari', 'Mangal', sans-serif;
+    color: #ff6347;
 }
 
-.lang-japanese {
-    font-family: 'Noto Sans JP', 'Yu Gothic', 'Meiryo', sans-serif;
+.lang-marathi {
+    font-family: 'Noto Sans Devanagari', 'Mangal', sans-serif;
+    color: #ff4500;
 }
 
-.lang-korean {
-    font-family: 'Noto Sans KR', 'Malgun Gothic', 'Dotum', sans-serif;
+.lang-nepali {
+    font-family: 'Noto Sans Devanagari', 'Kalimati', sans-serif;
+    color: #dc143c;
 }
 
-.lang-russian {
-    font-family: 'Roboto', 'Segoe UI', 'Arial', sans-serif;
+.lang-tamil {
+    font-family: 'Noto Sans Tamil', 'Latha', sans-serif;
+    color: #8b0000;
+}
+
+.lang-telugu {
+    font-family: 'Noto Sans Telugu', 'Gautami', sans-serif;
+    color: #4b0082;
+}
+
+.lang-malayalam {
+    font-family: 'Noto Sans Malayalam', 'Kartika', sans-serif;
+    color: #006400;
+}
+
+.lang-gujarati {
+    font-family: 'Noto Sans Gujarati', 'Shruti', sans-serif;
+    color: #ff8c00;
+}
+
+.lang-punjabi {
+    font-family: 'Noto Sans Gurmukhi', 'Raavi', sans-serif;
+    color: #ffd700;
+}
+
+.lang-kannada {
+    font-family: 'Noto Sans Kannada', 'Tunga', sans-serif;
+    color: #9932cc;
+}
+
+.lang-sinhala {
+    font-family: 'Noto Sans Sinhala', 'Iskoola Pota', sans-serif;
+    color: #228b22;
+}
+
+.lang-odia {
+    font-family: 'Noto Sans Oriya', 'Kalinga', sans-serif;
+    color: #b22222;
+}
+
+/* Middle Eastern Languages */
+.lang-arabic {
+    font-family: 'Amiri', 'Scheherazade New', 'Arial Unicode MS', sans-serif;
+    direction: rtl;
+    text-align: right;
+    color: #8b4513;
+}
+
+.lang-persian {
+    font-family: 'Vazir', 'Tahoma', sans-serif;
+    direction: rtl;
+    text-align: right;
+    color: #2f4f4f;
 }
 
 .lang-urdu {
     font-family: 'Noto Nastaliq Urdu', 'Alvi Nastaleeq', sans-serif;
     direction: rtl;
     text-align: right;
+    color: #006400;
 }
 
+.lang-hebrew {
+    font-family: 'Noto Sans Hebrew', 'David', sans-serif;
+    direction: rtl;
+    text-align: right;
+    color: #4169e1;
+}
+
+.lang-kurdish {
+    font-family: 'Noto Sans Arabic', sans-serif;
+    direction: rtl;
+    text-align: right;
+    color: #8b0000;
+}
+
+.lang-pashto {
+    font-family: 'Noto Sans Arabic', sans-serif;
+    direction: rtl;
+    text-align: right;
+    color: #556b2f;
+}
+
+/* East Asian Languages */
+.lang-chinese {
+    font-family: 'Noto Sans SC', 'PingFang SC', 'SimSun', sans-serif;
+    color: #d2691e;
+}
+
+.lang-chinese-traditional {
+    font-family: 'Noto Sans TC', 'PingFang TC', 'MingLiU', sans-serif;
+    color: #cd853f;
+}
+
+.lang-japanese {
+    font-family: 'Noto Sans JP', 'Yu Gothic', 'Meiryo', sans-serif;
+    color: #dc143c;
+}
+
+.lang-korean {
+    font-family: 'Noto Sans KR', 'Malgun Gothic', 'Dotum', sans-serif;
+    color: #4682b4;
+}
+
+/* Southeast Asian Languages */
+.lang-thai {
+    font-family: 'Noto Sans Thai', 'Tahoma', sans-serif;
+    color: #ff69b4;
+}
+
+.lang-vietnamese {
+    font-family: 'Noto Sans Vietnamese', 'Times New Roman', serif;
+    color: #32cd32;
+}
+
+.lang-khmer {
+    font-family: 'Noto Sans Khmer', 'Khmer UI', sans-serif;
+    color: #8a2be2;
+}
+
+.lang-lao {
+    font-family: 'Noto Sans Lao', 'DokChampa', sans-serif;
+    color: #20b2aa;
+}
+
+.lang-myanmar {
+    font-family: 'Noto Sans Myanmar', 'Myanmar Text', sans-serif;
+    color: #ff1493;
+}
+
+.lang-tagalog {
+    font-family: 'Noto Sans', 'Arial', sans-serif;
+    color: #1e90ff;
+}
+
+.lang-indonesian {
+    font-family: 'Noto Sans', 'Arial', sans-serif;
+    color: #ff4500;
+}
+
+.lang-malay {
+    font-family: 'Noto Sans', 'Arial', sans-serif;
+    color: #ffa500;
+}
+
+/* European Languages */
+.lang-english {
+    font-family: 'Inter', 'Segoe UI', 'Arial', sans-serif;
+    color: #333;
+}
+
+.lang-spanish {
+    font-family: 'Noto Sans', 'Arial', sans-serif;
+    color: #d2691e;
+}
+
+.lang-french {
+    font-family: 'Noto Sans', 'Arial', sans-serif;
+    color: #4169e1;
+}
+
+.lang-german {
+    font-family: 'Noto Sans', 'Arial', sans-serif;
+    color: #2f4f4f;
+}
+
+.lang-italian {
+    font-family: 'Noto Sans', 'Arial', sans-serif;
+    color: #228b22;
+}
+
+.lang-portuguese {
+    font-family: 'Noto Sans', 'Arial', sans-serif;
+    color: #ff6347;
+}
+
+.lang-russian {
+    font-family: 'Noto Sans', 'Segoe UI', 'Arial', sans-serif;
+    color: #9932cc;
+}
+
+.lang-ukrainian {
+    font-family: 'Noto Sans', 'Segoe UI', sans-serif;
+    color: #4682b4;
+}
+
+.lang-polish {
+    font-family: 'Noto Sans', 'Arial', sans-serif;
+    color: #dc143c;
+}
+
+.lang-czech {
+    font-family: 'Noto Sans', 'Arial', sans-serif;
+    color: #b22222;
+}
+
+.lang-hungarian {
+    font-family: 'Noto Sans', 'Arial', sans-serif;
+    color: #8b0000;
+}
+
+.lang-romanian {
+    font-family: 'Noto Sans', 'Arial', sans-serif;
+    color: #ff4500;
+}
+
+.lang-dutch {
+    font-family: 'Noto Sans', 'Arial', sans-serif;
+    color: #ff8c00;
+}
+
+.lang-swedish {
+    font-family: 'Noto Sans', 'Arial', sans-serif;
+    color: #4169e1;
+}
+
+.lang-norwegian {
+    font-family: 'Noto Sans', 'Arial', sans-serif;
+    color: #1e90ff;
+}
+
+.lang-danish {
+    font-family: 'Noto Sans', 'Arial', sans-serif;
+    color: #20b2aa;
+}
+
+.lang-finnish {
+    font-family: 'Noto Sans', 'Arial', sans-serif;
+    color: #008b8b;
+}
+
+.lang-greek {
+    font-family: 'Noto Sans Greek', 'Times New Roman', serif;
+    color: #4169e1;
+}
+
+.lang-turkish {
+    font-family: 'Noto Sans', 'Arial', sans-serif;
+    color: #dc143c;
+}
+
+/* African Languages */
+.lang-amharic {
+    font-family: 'Noto Sans Ethiopic', 'Nyala', sans-serif;
+    color: #8b4513;
+}
+
+.lang-swahili {
+    font-family: 'Noto Sans', 'Arial', sans-serif;
+    color: #228b22;
+}
+
+.lang-hausa {
+    font-family: 'Noto Sans', 'Arial', sans-serif;
+    color: #ff6347;
+}
+
+.lang-yoruba {
+    font-family: 'Noto Sans', 'Arial', sans-serif;
+    color: #32cd32;
+}
+
+.lang-igbo {
+    font-family: 'Noto Sans', 'Arial', sans-serif;
+    color: #ff4500;
+}
+
+/* Caucasian Languages */
+.lang-georgian {
+    font-family: 'Noto Sans Georgian', 'Sylfaen', sans-serif;
+    color: #8b0000;
+}
+
+.lang-armenian {
+    font-family: 'Noto Sans Armenian', 'Sylfaen', sans-serif;
+    color: #4b0082;
+}
+
+/* Other Languages */
+.lang-mongolian {
+    font-family: 'Noto Sans Mongolian', 'Mongolian Baiti', sans-serif;
+    color: #2f4f4f;
+}
+
+.lang-tibetan {
+    font-family: 'Noto Sans Tibetan', 'Microsoft Himalaya', sans-serif;
+    color: #8b4513;
+}
+
+/* Technical & Special */
+.lang-emoji {
+    font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif;
+    font-size: 1.2em;
+}
+
+.lang-numbers {
+    font-family: 'Roboto Mono', 'Consolas', monospace;
+    color: #0066cc;
+    font-weight: 600;
+}
+
+.lang-punctuation {
+    font-family: inherit;
+    color: #666;
+}
+
+.lang-code {
+    font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+    background: #f5f5f5;
+    padding: 2px 4px;
+    border-radius: 3px;
+    color: #d73a49;
+}
+
+.lang-math {
+    font-family: 'Latin Modern Math', 'STIX Two Math', serif;
+    color: #0066cc;
+    font-size: 1.1em;
+}
+
+/* Extended Latin */
+.lang-latin-extended {
+    font-family: 'Inter', 'Noto Sans', sans-serif;
+    color: #333;
+}
+
+/* Default */
 .lang-default {
     font-family: inherit;
+    color: inherit;
 }
 
+/* RTL Support */
 [dir="rtl"] {
     text-align: right;
     direction: rtl;
+}
+
+/* Language-specific adjustments */
+.lang-arabic,
+.lang-persian,
+.lang-urdu,
+.lang-hebrew,
+.lang-kurdish,
+.lang-pashto {
+    line-height: 1.8;
+    font-size: 1.05em;
+}
+
+.lang-chinese,
+.lang-chinese-traditional,
+.lang-japanese,
+.lang-korean {
+    line-height: 1.6;
+}
+
+.lang-thai,
+.lang-khmer,
+.lang-lao,
+.lang-myanmar {
+    line-height: 1.7;
+}
+
+/* Responsive font sizes */
+@media (max-width: 768px) {
+
+    .lang-arabic,
+    .lang-persian,
+    .lang-urdu,
+    .lang-hebrew {
+        font-size: 1.1em;
+    }
+
+    .lang-chinese,
+    .lang-japanese,
+    .lang-korean {
+        font-size: 0.95em;
+    }
+}
+
+/* Print styles */
+@media print {
+    .lang-code {
+        background: none;
+        border: 1px solid #ccc;
+    }
+
+    .lang-emoji {
+        font-size: 1em;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+
+    .lang-bengali,
+    .lang-hindi,
+    .lang-tamil,
+    .lang-arabic,
+    .lang-chinese,
+    .lang-japanese,
+    .lang-korean {
+        color: #000;
+        font-weight: 600;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .lang-code {
+        background: #2d3748;
+        color: #e53e3e;
+    }
+
+    .lang-punctuation {
+        color: #a0aec0;
+    }
+
+    .lang-numbers {
+        color: #4299e1;
+    }
 }
