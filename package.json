@@ -1,58 +1,67 @@
 {
-  "name": "language-styler",
-  "version": "2.0.1",
-  "description": "A lightweight JavaScript library to detect and style text in multiple languages using Unicode ranges, with React and TypeScript support.",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
-  "type": "module",
-  "exports": {
-    ".": "./dist/index.js",
-    "./lang-styler": "./dist/lang-styler.js"
-  },
-  "scripts": {
-    "build": "rollup -c",
-    "prepublishOnly": "npm run build"
-  },
-  "keywords": [
-    "language-detection",
-    "unicode",
-    "text-styling",
-    "multilingual",
-    "javascript",
-    "react",
-    "nextjs",
-    "typescript"
-  ],
-  "author": "Eyachir Arafat",
-  "license": "MIT",
-  "files": [
-    "dist",
-    "LICENSE",
-    "README.md"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/EyachirArafat/language-styler.git"
-  },
-  "homepage": "https://github.com/EyachirArafat/language-styler",
-  "bugs": {
-    "url": "https://github.com/EyachirArafat/language-styler/issues"
-  },
-  "engines": {
-    "node": ">=12"
-  },
-  "devDependencies": {
-    "@rollup/plugin-node-resolve": "^16.0.1",
-    "@rollup/plugin-typescript": "^12.1.2",
-    "@types/node": "^22.15.21",
-    "@types/react": "^19.1.5",
-    "rollup": "^4.41.0",
-    "tslib": "^2.8.1",
-    "typescript": "^5.8.3"
-  },
-  "dependencies": {
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0"
-  }
+    "name": "language-styler",
+    "version": "3.0.0",
+    "description": "A high-performance JavaScript library for detecting and styling multilingual text with React and TypeScript support.",
+    "main": "dist/index.js",
+    "module": "dist/index.esm.js",
+    "types": "dist/index.d.ts",
+    "type": "module",
+    "exports": {
+        ".": {
+            "import": "./dist/index.esm.js",
+            "require": "./dist/index.js",
+            "types": "./dist/index.d.ts"
+        },
+        "./react": {
+            "import": "./dist/react.esm.js",
+            "require": "./dist/react.js"
+        },
+        "./vanilla": {
+            "import": "./dist/vanilla.esm.js",
+            "require": "./dist/vanilla.js"
+        },
+        "./styles": "./dist/styles/default.css"
+    },
+    "files": [
+        "dist",
+        "LICENSE",
+        "README.md"
+    ],
+    "scripts": {
+        "build": "rollup -c",
+        "dev": "rollup -c -w",
+        "clean": "rimraf dist",
+        "prepublishOnly": "npm run build"
+    },
+    "keywords": [
+        "language-detection",
+        "multilingual",
+        "react",
+        "typescript"
+    ],
+    "author": "Eyachir Arafat",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/EyachirArafat/language-styler.git"
+    },
+    "peerDependencies": {
+        "react": ">=16.8.0"
+    },
+    "peerDependenciesMeta": {
+        "react": {
+            "optional": true
+        }
+    },
+    "devDependencies": {
+        "@rollup/plugin-node-resolve": "^15.2.3",
+        "@rollup/plugin-terser": "^0.4.4",
+        "@rollup/plugin-typescript": "^11.1.6",
+        "@types/react": "^18.3.3",
+        "rimraf": "^5.0.10",
+        "rollup": "^4.21.0",
+        "rollup-plugin-copy": "^3.5.0",
+        "tslib": "^2.8.1",
+        "typescript": "^5.5.4"
+    }
 }

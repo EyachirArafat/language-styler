@@ -1,0 +1,48 @@
+.lang-bengali {
+    font-family: 'Kalpurush', 'SolaimanLipi', 'Mukti', sans-serif;
+}
+
+.lang-english {
+    font-family: 'Inter', 'Segoe UI', 'Arial', sans-serif;
+}
+
+.lang-arabic {
+    font-family: 'Amiri', 'Scheherazade New', 'Arial Unicode MS', sans-serif;
+    direction: rtl;
+    text-align: right;
+}
+
+.lang-chinese {
+    font-family: 'Noto Sans SC', 'PingFang SC', 'SimSun', sans-serif;
+}
+
+.lang-hindi {
+    font-family: 'Noto Sans Devanagari', 'Mangal', sans-serif;
+}
+
+.lang-japanese {
+    font-family: 'Noto Sans JP', 'Yu Gothic', 'Meiryo', sans-serif;
+}
+
+.lang-korean {
+    font-family: 'Noto Sans KR', 'Malgun Gothic', 'Dotum', sans-serif;
+}
+
+.lang-russian {
+    font-family: 'Roboto', 'Segoe UI', 'Arial', sans-serif;
+}
+
+.lang-urdu {
+    font-family: 'Noto Nastaliq Urdu', 'Alvi Nastaleeq', sans-serif;
+    direction: rtl;
+    text-align: right;
+}
+
+.lang-default {
+    font-family: inherit;
+}
+
+[dir="rtl"] {
+    text-align: right;
+    direction: rtl;
+}

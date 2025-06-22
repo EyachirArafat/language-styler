@@ -1,5 +1,13 @@
-export { addLang, getLangConfig } from './core/config';
-export { processNode, processText } from './core/processor';
-export { processReactText } from './core/react';
-export { LangStyler } from './react/lang-styler';
+// Core exports
+export { DOMProcessor, LanguageDetector, TextProcessor } from './core';
+export * from './core/constants';
+export * from './core/types';
 
+// React exports
+export { LangStyler } from './react';
+
+// Vanilla JS exports
+export { processDocument, processElement, processSelector, processText } from './vanilla';
+
+// Default export for React
+export { default } from './react/LangStyler';

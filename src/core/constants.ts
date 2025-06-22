@@ -1,26 +1,72 @@
-export const SUPPORTED_LANGUAGES: { [key: string]: { regex: RegExp, className: string, isRTL: boolean } } = {
-    Bengali: { regex: /[\u0980-\u09FF\u09E6-\u09EF]/, className: "bengali", isRTL: false },
-    English: { regex: /[A-Za-z0-9]/, className: "english", isRTL: false },
-    Arabic: { regex: /[\u0600-\u06FF\u0660-\u0669]/, className: "arabic", isRTL: true },
-    Chinese: { regex: /[\u4E00-\u9FFF]/, className: "chinese", isRTL: false },
-    Hindi: { regex: /[\u0900-\u097F\u0966-\u096F]/, className: "hindi", isRTL: false },
-    Japanese: { regex: /[\u3040-\u309F\u30A0-\u30FF]/, className: "japanese", isRTL: false },
-    Korean: { regex: /[\uAC00-\uD7AF]/, className: "korean", isRTL: false },
-    Russian: { regex: /[\u0400-\u04FF]/, className: "russian", isRTL: false },
-    Tamil: { regex: /[\u0B80-\u0BFF\u0BE6-\u0BEF]/, className: "tamil", isRTL: false },
-    Telugu: { regex: /[\u0C00-\u0C7F\u0C66-\u0C6F]/, className: "telugu", isRTL: false },
-    Malayalam: { regex: /[\u0D00-\u0D7F\u0D66-\u0D6F]/, className: "malayalam", isRTL: false },
-    Thai: { regex: /[\u0E00-\u0E7F\u0E50-\u0E59]/, className: "thai", isRTL: false },
-    Greek: { regex: /[\u0370-\u03FF]/, className: "greek", isRTL: false },
-    Hebrew: { regex: /[\u0590-\u05FF]/, className: "hebrew", isRTL: true },
-    Georgian: { regex: /[\u10A0-\u10FF]/, className: "georgian", isRTL: false },
-    Armenian: { regex: /[\u0530-\u058F]/, className: "armenian", isRTL: false },
-    Gujarati: { regex: /[\u0A80-\u0AFF\u0AE6-\u0AEF]/, className: "gujarati", isRTL: false },
-    Punjabi: { regex: /[\u0A00-\u0A7F\u0A66-\u0A6F]/, className: "punjabi", isRTL: false },
-    Kannada: { regex: /[\u0C80-\u0CFF\u0CE6-\u0CEF]/, className: "kannada", isRTL: false },
-    Sinhala: { regex: /[\u0D80-\u0DFF\u0DE6-\u0DEF]/, className: "sinhala", isRTL: false },
-    LatinExtended: { regex: /[\u00C0-\u024F]/, className: "latin-extended", isRTL: false },
-    Urdu: { regex: /[\u0600-\u06FF\u0660-\u0669]/, className: "urdu", isRTL: true },
-};
+export const SUPPORTED_LANGUAGES = {
+    Bengali: {
+        regex: /[\u0980-\u09FF\u09E6-\u09EF]/,
+        className: "lang-bengali",
+        isRTL: false,
+        fontFamily: "'Kalpurush', 'SolaimanLipi', sans-serif"
+    },
+    English: {
+        regex: /[A-Za-z0-9]/,
+        className: "lang-english",
+        isRTL: false,
+        fontFamily: "'Inter', 'Arial', sans-serif"
+    },
+    Arabic: {
+        regex: /[\u0600-\u06FF\u0660-\u0669]/,
+        className: "lang-arabic",
+        isRTL: true,
+        fontFamily: "'Amiri', 'Arial Unicode MS', sans-serif"
+    },
+    Chinese: {
+        regex: /[\u4E00-\u9FFF]/,
+        className: "lang-chinese",
+        isRTL: false,
+        fontFamily: "'Noto Sans SC', 'SimSun', sans-serif"
+    },
+    Hindi: {
+        regex: /[\u0900-\u097F\u0966-\u096F]/,
+        className: "lang-hindi",
+        isRTL: false,
+        fontFamily: "'Noto Sans Devanagari', sans-serif"
+    },
+    Japanese: {
+        regex: /[\u3040-\u309F\u30A0-\u30FF]/,
+        className: "lang-japanese",
+        isRTL: false,
+        fontFamily: "'Noto Sans JP', 'Yu Gothic', sans-serif"
+    },
+    Korean: {
+        regex: /[\uAC00-\uD7AF]/,
+        className: "lang-korean",
+        isRTL: false,
+        fontFamily: "'Noto Sans KR', 'Malgun Gothic', sans-serif"
+    },
+    Russian: {
+        regex: /[\u0400-\u04FF]/,
+        className: "lang-russian",
+        isRTL: false,
+        fontFamily: "'Roboto', 'Arial', sans-serif"
+    },
+    Urdu: {
+        regex: /[\u0600-\u06FF\u0660-\u0669]/,
+        className: "lang-urdu",
+        isRTL: true,
+        fontFamily: "'Noto Nastaliq Urdu', sans-serif"
+    }
+} as const;
 
-export const RTL_LANGUAGES: string[] = ["Arabic", "Hebrew", "Urdu"];
+export const RTL_LANGUAGES = ["Arabic", "Hebrew", "Urdu"] as const;
+
+export const DEFAULT_LANGUAGE = {
+    name: "default",
+    className: "lang-default",
+    isRTL: false,
+    fontFamily: "inherit",
+    regex: /./
+} as const;
+
+// Language priority for overlapping ranges
+export const LANGUAGE_PRIORITY = [
+    "Arabic", "Bengali", "Urdu", "Hindi", "Chinese", "Japanese",
+    "Korean", "Russian", "English"
+] as const;
