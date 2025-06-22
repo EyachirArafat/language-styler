@@ -501,38 +501,3 @@ export const COMMON_COMBINATIONS = {
     Programming: ["English", "Code", "Math", "Numbers", "Punctuation"],
     Social: ["English", "Emoji", "Numbers", "Punctuation"]
 } as const;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// export const RTL_LANGUAGES = ["Arabic", "Hebrew", "Urdu"] as const;
-
-//         export const DEFAULT_LANGUAGE = {
-//             name: "default",
-//             className: "lang-default",
-//             isRTL: false,
-//             fontFamily: "inherit",
-//             regex: /./
-//         } as const;
-
-//         // Language priority for overlapping ranges
-//         export const LANGUAGE_PRIORITY = [
-//             "Arabic", "Bengali", "Urdu", "Hindi", "Chinese", "Japanese",
-//             "Korean", "Russian", "English"
-//         ] as const;

@@ -17,19 +17,21 @@ const baseConfig = {
       sourceMap: !isProduction,
       declaration: true,
       declarationDir: "dist",
+      exclude: ["**/*.test.ts", "**/*.test.tsx"],
     }),
-    isProduction &&
-      terser({
-        compress: {
-          drop_console: true,
-          drop_debugger: true,
-        },
-      }),
+    isProduction && terser(),
+    // IMPORTANT: Copy CSS files
     copy({
-      targets: [{ src: "src/styles", dest: "dist" }],
+      targets: [
+        {
+          src: "src/styles/**/*",
+          dest: "dist/styles",
+          flatten: false,
+        },
+      ],
+      verbose: true,
     }),
   ].filter(Boolean),
-  external: ["react", "react-dom", "react/jsx-runtime"],
 };
 
 export default [
@@ -43,6 +45,7 @@ export default [
       sourcemap: !isProduction,
       exports: "named",
     },
+    external: ["react", "react-dom", "react/jsx-runtime"],
   },
 
   // Main bundle (ESM)
@@ -54,6 +57,7 @@ export default [
       format: "esm",
       sourcemap: !isProduction,
     },
+    external: ["react", "react-dom", "react/jsx-runtime"],
   },
 
   // React-only bundle (CommonJS)
@@ -66,6 +70,7 @@ export default [
       sourcemap: !isProduction,
       exports: "named",
     },
+    external: ["react", "react-dom", "react/jsx-runtime"],
   },
 
   // React-only bundle (ESM)
@@ -77,6 +82,7 @@ export default [
       format: "esm",
       sourcemap: !isProduction,
     },
+    external: ["react", "react-dom", "react/jsx-runtime"],
   },
 
   // Vanilla JS bundle (CommonJS)
@@ -89,7 +95,7 @@ export default [
       sourcemap: !isProduction,
       exports: "named",
     },
-    external: [], // No external dependencies for vanilla
+    external: [],
   },
 
   // Vanilla JS bundle (ESM)
@@ -101,7 +107,7 @@ export default [
       format: "esm",
       sourcemap: !isProduction,
     },
-    external: [], // No external dependencies for vanilla
+    external: [],
   },
 
   // UMD bundle for browsers
