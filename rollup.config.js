@@ -1,78 +1,125 @@
 import resolve from "@rollup/plugin-node-resolve";
+import terser from "@rollup/plugin-terser";
 import typescript from "@rollup/plugin-typescript";
+import copy from "rollup-plugin-copy";
+
+const isProduction = process.env.NODE_ENV === "production";
+
+const baseConfig = {
+  plugins: [
+    resolve({
+      extensions: [".js", ".jsx", ".ts", ".tsx"],
+      mainFields: ["module", "main"],
+      preferBuiltins: false,
+    }),
+    typescript({
+      tsconfig: "./tsconfig.json",
+      sourceMap: !isProduction,
+      declaration: true,
+      declarationDir: "dist",
+      exclude: ["**/*.test.ts", "**/*.test.tsx"],
+    }),
+    isProduction && terser(),
+    // IMPORTANT: Copy CSS files
+    copy({
+      targets: [
+        {
+          src: "src/styles/**/*",
+          dest: "dist/styles",
+          flatten: false,
+        },
+      ],
+      verbose: true,
+    }),
+  ].filter(Boolean),
+};
 
 export default [
-  // CommonJS
+  // Main bundle (CommonJS)
   {
+    ...baseConfig,
     input: "src/index.ts",
     output: {
       file: "dist/index.js",
       format: "cjs",
-      sourcemap: false,
+      sourcemap: !isProduction,
+      exports: "named",
     },
-    plugins: [
-      resolve({
-        extensions: [".js", ".jsx", ".ts", ".tsx"],
-        mainFields: ["main", "module"],
-        preferBuiltins: false,
-      }),
-      typescript({ tsconfig: "./tsconfig.json", sourceMap: false }),
-    ],
-    external: ["react", "react/jsx-runtime"],
+    external: ["react", "react-dom", "react/jsx-runtime"],
   },
-  // ESM
+
+  // Main bundle (ESM)
   {
+    ...baseConfig,
     input: "src/index.ts",
     output: {
       file: "dist/index.esm.js",
       format: "esm",
-      sourcemap: false,
+      sourcemap: !isProduction,
     },
-    plugins: [
-      resolve({
-        extensions: [".js", ".jsx", ".ts", ".tsx"],
-        mainFields: ["module", "main"],
-        preferBuiltins: false,
-      }),
-      typescript({ tsconfig: "./tsconfig.json", sourceMap: false }),
-    ],
-    external: ["react", "react/jsx-runtime"],
+    external: ["react", "react-dom", "react/jsx-runtime"],
   },
-  // UMD
+
+  // React-only bundle (CommonJS)
   {
-    input: "src/default.ts",
+    ...baseConfig,
+    input: "src/react/index.ts",
     output: {
-      file: "dist/default.umd.js",
-      format: "umd",
-      name: "languageStylerHtml",
-      sourcemap: false,
+      file: "dist/react.js",
+      format: "cjs",
+      sourcemap: !isProduction,
+      exports: "named",
     },
-    plugins: [
-      resolve({
-        extensions: [".js", ".jsx", ".ts", ".tsx"],
-        mainFields: ["module", "main"],
-        preferBuiltins: false,
-      }),
-      typescript({ tsconfig: "./tsconfig.json", sourceMap: false }),
-    ],
+    external: ["react", "react-dom", "react/jsx-runtime"],
+  },
+
+  // React-only bundle (ESM)
+  {
+    ...baseConfig,
+    input: "src/react/index.ts",
+    output: {
+      file: "dist/react.esm.js",
+      format: "esm",
+      sourcemap: !isProduction,
+    },
+    external: ["react", "react-dom", "react/jsx-runtime"],
+  },
+
+  // Vanilla JS bundle (CommonJS)
+  {
+    ...baseConfig,
+    input: "src/vanilla/index.ts",
+    output: {
+      file: "dist/vanilla.js",
+      format: "cjs",
+      sourcemap: !isProduction,
+      exports: "named",
+    },
     external: [],
   },
-  // LangStyler Module
+
+  // Vanilla JS bundle (ESM)
   {
-    input: "src/react/lang-styler.tsx",
+    ...baseConfig,
+    input: "src/vanilla/index.ts",
     output: {
-      file: "dist/lang-styler.js",
+      file: "dist/vanilla.esm.js",
       format: "esm",
-      sourcemap: false,
+      sourcemap: !isProduction,
     },
-    plugins: [
-      resolve({
-        extensions: [".js", ".jsx", ".ts", ".tsx"],
-        mainFields: ["module", "main"],
-        preferBuiltins: false,
-      }),
-      typescript({ tsconfig: "./tsconfig.json", sourceMap: false }),
-    ],
-    external: ["react", "react/jsx-runtime"],
+    external: [],
+  },
+
+  // UMD bundle for browsers
+  {
+    ...baseConfig,
+    input: "src/vanilla/index.ts",
+    output: {
+      file: "dist/language-styler.umd.js",
+      format: "umd",
+      name: "LanguageStyler",
+      sourcemap: !isProduction,
+    },
+    external: [],
   },
 ];

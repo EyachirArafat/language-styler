@@ -1,13 +1,13 @@
-// export {
-//   addCustomLang, getLangConfig, processElement, processText,
-//   processTextForReact, processGlobal
-// } from "./core";
-// export { GlobalStyleWrapper } from "./global-style";
-// export { TextStyle as LanguageStyledText } from "./text-style";
+// Core exports
+export { DOMProcessor, LanguageDetector, TextProcessor } from './core';
+export * from './core/constants';
+export * from './core/types';
 
-export { addLang, getLangConfig } from './core/config';
-export { processAll, processNode, processText } from './core/processor';
-export { processReactText } from './core/react';
-export { GlobalStyler } from './react/global-styler';
-export { LangStyler } from './react/lang-styler';
+// React exports
+export { LangStyler } from './react';
 
+// Vanilla JS exports
+export { processDocument, processElement, processSelector, processText } from './vanilla';
+
+// Default export for React
+export { default } from './react/LangStyler';
