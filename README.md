@@ -235,22 +235,6 @@ import { LANGUAGE_GROUPS, COMMON_COMBINATIONS } from 'language-styler';
 // - LANGUAGE_GROUPS.Technical
 ```
 
-### Performance Monitoring
-
-```javascript
-import { processText } from 'language-styler/vanilla';
-
-const longText = "বাংলা English العربية 中文 ".repeat(1000);
-const result = processText(longText);
-
-console.log('Performance Stats:');
-console.log('- Characters processed:', result.stats.totalCharacters);
-console.log('- Segments created:', result.stats.totalSegments);
-console.log('- Processing time:', result.stats.processingTime.toFixed(2), 'ms');
-console.log('- Languages detected:', result.stats.languagesDetected);
-console.log('- Speed:', Math.round(result.stats.totalCharacters / result.stats.processingTime * 1000), 'chars/sec');
-```
-
 ## 📦 Bundle Information
 
 ### Multiple Entry Points
