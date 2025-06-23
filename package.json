@@ -1,5 +1,5 @@
 {
-    "name": "@eyachirarafat/language-styler",
+    "name": "language-styler",
     "version": "3.0.0",
     "description": "A high-performance JavaScript library for detecting and styling multilingual text with React and TypeScript support.",
     "publishConfig": {
@@ -56,6 +56,10 @@
     "repository": {
         "type": "git",
         "url": "https://github.com/EyachirArafat/language-styler.git"
+    },
+    "homepage": "https://github.com/EyachirArafat/language-styler#readme",
+    "bugs": {
+    "url": "https://github.com/EyachirArafat/language-styler/issues"
     },
     "peerDependencies": {
         "react": ">=16.8.0"
