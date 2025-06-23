@@ -1,6 +1,8 @@
 name: Dual Publish (npm + GitHub Packages)
 
 on:
+  push:
+    branches: [ main ]
   release:
     types: [published]
 
