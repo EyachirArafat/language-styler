@@ -2,7 +2,6 @@
 
 A high-performance JavaScript library for detecting and styling multilingual text with minimal DOM overhead. Supports 50+ languages with React and TypeScript support.
 
-[![npm version](https://badge.fury.io/js/language-styler.svg)](https://badge.fury.io/js/language-styler)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
 [![Bundle Size](https://img.shields.io/bundlephobia/minzip/language-styler)](https://bundlephobia.com/package/language-styler)

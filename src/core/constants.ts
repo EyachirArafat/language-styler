@@ -438,7 +438,7 @@ export const LANGUAGE_PRIORITY = [
     // East Asian
     "Japanese", "Korean", "Chinese", "ChineseTraditional",
 
-    // Southeast Asian
+    // Southeast Asian (non-Latin first)
     "Thai", "Vietnamese", "Khmer", "Lao", "Myanmar",
 
     // European (specific to general)
@@ -450,11 +450,17 @@ export const LANGUAGE_PRIORITY = [
     // African
     "Amharic", "Yoruba", "Igbo", "Swahili", "Hausa",
 
-    // Others
-    "Mongolian", "Tibetan", "Tagalog", "Indonesian", "Malay",
+    // Others (non-Latin first)
+    "Mongolian", "Tibetan",
+
+    // --- English before other Latin-based languages ---
+    "English",
+
+    // Southeast Asian (Latin-based, after English)
+    "Tagalog", "Indonesian", "Malay",
 
     // Most general last
-    "LatinExtended", "English"
+    "LatinExtended"
 ] as const;
 
 // Language groups for easier management
