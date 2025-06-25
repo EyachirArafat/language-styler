@@ -142,6 +142,14 @@ export const SUPPORTED_LANGUAGES = {
         isRTL: false,
         fontFamily: "'Noto Sans KR', 'Malgun Gothic', 'Dotum', sans-serif"
     },
+    //
+
+    English: {
+        regex: /[A-Za-z0-9]/,
+        className: "lang-english",
+        isRTL: false,
+        fontFamily: "'Inter', 'Segoe UI', 'Arial', sans-serif"
+    },
 
     // Southeast Asian Languages
     Thai: {
@@ -194,12 +202,7 @@ export const SUPPORTED_LANGUAGES = {
     },
 
     // European Languages
-    English: {
-        regex: /[A-Za-z0-9]/,
-        className: "lang-english",
-        isRTL: false,
-        fontFamily: "'Inter', 'Segoe UI', 'Arial', sans-serif"
-    },
+
     Spanish: {
         regex: /[A-Za-zñáéíóúü¿¡]/,
         className: "lang-spanish",

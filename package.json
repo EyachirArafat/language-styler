@@ -1,7 +1,7 @@
 {
     "name": "language-styler",
-    "version": "3.0.1",
-    "description": "A high-performance JavaScript library for detecting and styling multilingual text with React and TypeScript support.",
+    "version": "3.0.2",
+    "description": "A high performance JavaScript library for detecting and styling multilingual text with React and TypeScript support.",
     "publishConfig": {
         "registry": "https://npm.pkg.github.com",
         "@eyachirarafat:registry": "https://npm.pkg.github.com"
